@@ -14,13 +14,16 @@
     "@remix-run/express": "^2.12.1",
     "@remix-run/node": "^2.12.1",
     "@remix-run/react": "^2.12.1",
+    "@zag-js/react": "^0.73.0",
+    "@zag-js/select": "^0.73.0",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
     "isbot": "^4.1.0",
     "morgan": "^1.10.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.12.1",
