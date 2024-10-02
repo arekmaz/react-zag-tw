@@ -1,6 +1,6 @@
-import { normalizeProps, useMachine, mergeProps } from '@zag-js/react';
+import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import * as toggle from '@zag-js/toggle-group';
-import { useId, ComponentProps } from 'react';
+import { ComponentProps, useId } from 'react';
 import { createHookContext } from './machine-ctx';
 
 export const [useToggleGroup, ToggleGroupProvider, ToggleGroupContext] =
