@@ -9,6 +9,7 @@ import { Combobox } from '~/combobox';
 import { DatePicker } from '~/date-picker';
 import { Dialog } from '~/dialog';
 import { Editable } from '~/editable';
+import { FileUpload } from '~/file-upload';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -50,6 +51,7 @@ export default function Index() {
       <DatePicker />
       <Dialog />
       <Editable />
+      <FileUpload />
     </div>
   );
 }
