@@ -38,6 +38,10 @@ export const MenuItem = ({
   <li {...mergeProps(useMenu().getItemProps({ value }), props)} />
 );
 
+export const MenuContextTrigger = (props: ComponentProps<'div'>) => (
+  <div {...mergeProps(useMenu().getContextTriggerProps(), props)} />
+);
+
 export function Menu() {
   return (
     <MenuProvider id={useId()}>
@@ -50,7 +54,27 @@ export function Menu() {
             <MenuItem value="edit">Edit</MenuItem>
             <MenuItem value="duplicate">Duplicate</MenuItem>
             <MenuItem value="delete">Delete</MenuItem>
-            <MenuItem value="export">Delete</MenuItem>
+            <MenuItem value="export">Export</MenuItem>
+          </MenuContent>
+        </MenuPositioner>
+      </div>
+    </MenuProvider>
+  );
+}
+
+export function ContextMenu() {
+  return (
+    <MenuProvider id={useId()}>
+      <div>
+        <MenuContextTrigger>
+          <div>Open context menu</div>
+        </MenuContextTrigger>
+        <MenuPositioner>
+          <MenuContent>
+            <MenuItem value="edit">Edit</MenuItem>
+            <MenuItem value="duplicate">Duplicate</MenuItem>
+            <MenuItem value="delete">Delete</MenuItem>
+            <MenuItem value="export">Export</MenuItem>
           </MenuContent>
         </MenuPositioner>
       </div>
