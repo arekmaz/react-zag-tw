@@ -1,5 +1,5 @@
 import * as datepicker from '@zag-js/date-picker';
-import { useMachine, normalizeProps, Portal, mergeProps } from '@zag-js/react';
+import { mergeProps, normalizeProps, Portal, useMachine } from '@zag-js/react';
 import { ComponentProps, useId } from 'react';
 import { createHookContext } from './machine-ctx';
 
@@ -181,9 +181,9 @@ export const DatePickerYearTableCellTrigger = ({
   />
 );
 
-function DatePicker() {
+export function DatePicker() {
   return (
-    <>
+    <DatePickerProvider id={useId()}>
       <DatePickerControl>
         <DatePickerInput />
         <DatePickerTrigger>🗓</DatePickerTrigger>
@@ -312,6 +312,6 @@ function DatePicker() {
           </DatePickerConsumer>
         </DatePickerPositioner>
       </Portal>
-    </>
+    </DatePickerProvider>
   );
 }
