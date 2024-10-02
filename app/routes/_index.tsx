@@ -18,6 +18,7 @@ import { Popover } from '~/popover';
 import { Presence } from '~/presence';
 import { ProgressCircular, ProgressLinear } from '~/progress';
 import { QRCode } from '~/qr-code';
+import { Radio } from '~/radio-group';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -59,6 +60,7 @@ export default function Index() {
       <ProgressLinear />
       <ProgressCircular />
       <QRCode />
+      <Radio />
     </div>
   );
 }

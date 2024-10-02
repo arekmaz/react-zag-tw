@@ -34,6 +34,7 @@
     "@zag-js/presence": "^0.73.0",
     "@zag-js/progress": "^0.73.0",
     "@zag-js/qr-code": "^0.73.0",
+    "@zag-js/radio-group": "^0.73.0",
     "@zag-js/react": "^0.73.0",
     "@zag-js/select": "^0.73.0",
     "@zag-js/timer": "^0.73.0",
