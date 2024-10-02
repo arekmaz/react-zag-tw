@@ -9,7 +9,6 @@ export const createHookContext = <Props extends Record<string, unknown>, O>(
 
   const Provider = ({ children, ...props }: PropsWithChildren<Props>) => {
     const output = hook(props as Props);
-    console.log({ props, output });
     return <Context.Provider value={output}>{children}</Context.Provider>;
   };
 
