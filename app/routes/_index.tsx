@@ -16,6 +16,7 @@ import { NumberInput } from '~/number-input';
 import { Pagination } from '~/pagination';
 import { Popover } from '~/popover';
 import { Presence } from '~/presence';
+import { ProgressCircular, ProgressLinear } from '~/progress';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -54,6 +55,8 @@ export default function Index() {
       <Pagination />
       <Popover />
       <Presence present>presence</Presence>
+      <ProgressLinear />
+      <ProgressCircular />
     </div>
   );
 }
