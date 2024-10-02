@@ -149,6 +149,38 @@ export const DatePickerMonthTableCellTrigger = ({
   />
 );
 
+export const DatePickerYearTableCell = ({
+  disabled,
+  value,
+  columns,
+  ...props
+}: ComponentProps<'td'> & datepicker.TableCellProps) => (
+  <td
+    {...mergeProps(
+      useDatePicker().getYearTableCellProps({ disabled, value, columns }),
+      props
+    )}
+  />
+);
+
+export const DatePickerYearTableCellTrigger = ({
+  disabled,
+  value,
+  columns,
+  ...props
+}: ComponentProps<'div'> & datepicker.TableCellProps) => (
+  <div
+    {...mergeProps(
+      useDatePicker().getYearTableCellTriggerProps({
+        disabled,
+        value,
+        columns,
+      }),
+      props
+    )}
+  />
+);
+
 function DatePicker() {
   return (
     <>
@@ -240,47 +272,40 @@ function DatePicker() {
 
                 {/*  Year View  */}
                 <div hidden={api.view !== 'year'}>
-                  <div {...api.getViewControlProps({ view: 'year' })}>
-                    <button {...api.getPrevTriggerProps({ view: 'year' })}>
+                  <DatePickerViewControl view="year">
+                    <DatePickerPrevTrigger view="year">
                       Prev
-                    </button>
+                    </DatePickerPrevTrigger>
                     <span>
                       {api.getDecade().start} - {api.getDecade().end}
                     </span>
-                    <button {...api.getNextTriggerProps({ view: 'year' })}>
+                    <DatePickerNextTrigger view="year">
                       Next
-                    </button>
-                  </div>
+                    </DatePickerNextTrigger>
+                  </DatePickerViewControl>
 
-                  <table {...api.getTableProps({ view: 'year', columns: 4 })}>
-                    <tbody {...api.getTableBodyProps()}>
+                  <DatePickerTable view="year" columns={4}>
+                    <DatePickerTableBody>
                       {api.getYearsGrid({ columns: 4 }).map((years, row) => (
-                        <tr
-                          key={row}
-                          {...api.getTableRowProps({ view: 'year' })}
-                        >
+                        <DatePickerTableRow key={row} view="year">
                           {years.map((year, index) => (
-                            <td
+                            <DatePickerYearTableCell
                               key={index}
-                              {...api.getYearTableCellProps({
-                                ...year,
-                                columns: 4,
-                              })}
+                              {...year}
+                              columns={4}
                             >
-                              <div
-                                {...api.getYearTableCellTriggerProps({
-                                  ...year,
-                                  columns: 4,
-                                })}
+                              <DatePickerYearTableCellTrigger
+                                {...year}
+                                columns={4}
                               >
                                 {year.label}
-                              </div>
-                            </td>
+                              </DatePickerYearTableCellTrigger>
+                            </DatePickerYearTableCell>
                           ))}
-                        </tr>
+                        </DatePickerTableRow>
                       ))}
-                    </tbody>
-                  </table>
+                    </DatePickerTableBody>
+                  </DatePickerTable>
                 </div>
               </DatePickerContent>
             )}
