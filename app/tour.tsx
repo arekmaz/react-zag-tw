@@ -1,6 +1,6 @@
+import { mergeProps, normalizeProps, Portal, useMachine } from '@zag-js/react';
 import * as tour from '@zag-js/tour';
-import { useMachine, normalizeProps, Portal, mergeProps } from '@zag-js/react';
-import { useId, ComponentProps } from 'react';
+import { ComponentProps, useId } from 'react';
 import { createHookContext } from './machine-ctx';
 
 export const [useTour, TourProvider, TourContext] = createHookContext(
@@ -39,6 +39,29 @@ export const TourArrowTip = (props: ComponentProps<'div'>) => (
   <div {...mergeProps(useTour().getArrowTipProps(), props)} />
 );
 
+export const TourTitle = (props: ComponentProps<'p'>) => (
+  <p {...mergeProps(useTour().getTitleProps(), props)} />
+);
+
+export const TourDescription = (props: ComponentProps<'div'>) => (
+  <div {...mergeProps(useTour().getDescriptionProps(), props)} />
+);
+
+export const TourProgressText = (props: ComponentProps<'div'>) => (
+  <div {...mergeProps(useTour().getProgressTextProps(), props)} />
+);
+
+export const TourActionTrigger = ({
+  action,
+  ...props
+}: ComponentProps<'button'> & tour.StepActionTriggerProps) => (
+  <button {...mergeProps(useTour().getActionTriggerProps({ action }), props)} />
+);
+
+export const TourCloseTrigger = (props: ComponentProps<'button'>) => (
+  <button {...mergeProps(useTour().getCloseTriggerProps(), props)} />
+);
+
 export function Tour() {
   return (
     <TourProvider id={useId()} steps={steps}>
@@ -61,30 +84,23 @@ export function Tour() {
                       </TourArrow>
                     )}
 
-                    <p {...api.getTitleProps()}>{api.step.title}</p>
-                    <div {...api.getDescriptionProps()}>
-                      {api.step.description}
-                    </div>
-                    <div {...api.getProgressTextProps()}>
-                      {api.getProgressText()}
-                    </div>
+                    <TourTitle>{api.step.title}</TourTitle>
+                    <TourDescription>{api.step.description}</TourDescription>
+                    <TourProgressText>{api.getProgressText()}</TourProgressText>
 
                     {api.step.actions && (
                       <div>
                         {api.step.actions.map((action) => (
-                          <button
-                            key={action.label}
-                            {...api.getActionTriggerProps({ action })}
-                          >
+                          <TourActionTrigger key={action.label} action={action}>
                             {action.label}
-                          </button>
+                          </TourActionTrigger>
                         ))}
                       </div>
                     )}
 
-                    <button {...api.getCloseTriggerProps()}>X</button>
-                  </div>
-                </div>
+                    <TourCloseTrigger>X</TourCloseTrigger>
+                  </TourContent>
+                </TourPositioner>
               </Portal>
             )}
           </div>

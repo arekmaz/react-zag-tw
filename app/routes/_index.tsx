@@ -33,6 +33,7 @@ import { Tabs } from '~/tabs';
 import { TagsInput } from '~/tags-input';
 import { ToggleGroup } from '~/toggle-group';
 import { Tooltip } from '~/tooltip';
+import { Tour } from '~/tour';
 
 export const meta: MetaFunction = () => {
   return [
@@ -83,6 +84,7 @@ export default function Index() {
       <TagsInput />
       <ToggleGroup />
       <Tooltip />
+      <Tour />
     </div>
   );
 }
