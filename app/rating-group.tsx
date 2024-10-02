@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import * as rating from '@zag-js/rating-group';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
-
 import { useId, ComponentProps } from 'react';
 import { createHookContext } from './machine-ctx';
 import { Star, StarHalf } from 'lucide-react';

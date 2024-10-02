@@ -27,6 +27,7 @@ import { SignaturePad } from '~/signature-pad';
 import { Countdown } from '~/timer';
 import { CountdownMachine } from '~/timer-machine';
 import { Splitter } from '~/splitter';
+import { Steps } from '~/steps';
 
 export const meta: MetaFunction = () => {
   return [
@@ -71,6 +72,7 @@ export default function Index() {
       <SignaturePad />
       <Slider />
       <Splitter />
+      <Steps />
     </div>
   );
 }
