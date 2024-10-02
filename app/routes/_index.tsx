@@ -17,6 +17,7 @@ import { Pagination } from '~/pagination';
 import { Popover } from '~/popover';
 import { Presence } from '~/presence';
 import { ProgressCircular, ProgressLinear } from '~/progress';
+import { QRCode } from '~/qr-code';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -57,6 +58,7 @@ export default function Index() {
       <Presence present>presence</Presence>
       <ProgressLinear />
       <ProgressCircular />
+      <QRCode />
     </div>
   );
 }
