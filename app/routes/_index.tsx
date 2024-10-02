@@ -19,7 +19,7 @@ import { Presence } from '~/presence';
 import { ProgressCircular, ProgressLinear } from '~/progress';
 import { QRCode } from '~/qr-code';
 import { Radio, SegmentedControl } from '~/radio-group';
-import { RangeSlider } from '~/range-slider';
+import { RangeSlider, Slider } from '~/slider';
 import { Rating } from '~/rating-group';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
@@ -68,6 +68,7 @@ export default function Index() {
       <RangeSlider />
       <Rating />
       <SignaturePad />
+      <Slider />
     </div>
   );
 }
