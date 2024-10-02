@@ -29,6 +29,7 @@ import { CountdownMachine } from '~/timer-machine';
 import { Splitter } from '~/splitter';
 import { Steps } from '~/steps';
 import { Switch } from '~/switch';
+import { Tabs } from '~/tabs';
 
 export const meta: MetaFunction = () => {
   return [
@@ -75,6 +76,7 @@ export default function Index() {
       <Splitter />
       <Steps />
       <Switch />
+      <Tabs />
     </div>
   );
 }
