@@ -12,6 +12,7 @@ import { Editable } from '~/editable';
 import { FileUpload } from '~/file-upload';
 import { HoverCard } from '~/hoverCard';
 import { ContextMenu, Menu, NestedMenu } from '~/menu';
+import { NumberInput } from '~/number-input';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -58,6 +59,7 @@ export default function Index() {
       <Menu />
       <ContextMenu />
       <NestedMenu />
+      <NumberInput />
     </div>
   );
 }

@@ -28,6 +28,7 @@
     "@zag-js/file-upload": "^0.73.0",
     "@zag-js/hover-card": "^0.73.0",
     "@zag-js/menu": "^0.73.0",
+    "@zag-js/number-input": "^0.73.0",
     "@zag-js/react": "^0.73.0",
     "@zag-js/select": "^0.73.0",
     "@zag-js/timer": "^0.73.0",
