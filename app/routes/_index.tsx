@@ -1,5 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
-import { AccordionMachine } from '~/accordion-machine';
+import { AccordionMachine } from '~/accordion';
 import { CarouselMachine } from '~/carousel-machine';
 import { Checkbox } from '~/checkbox-machine';
 import { Clipboard } from '~/clipboard-machine';
@@ -46,45 +46,47 @@ export default function Index() {
   return (
     <div className="flex h-screen items-center justify-center flex-col py-10 gap-10">
       <AccordionMachine />
-      <CarouselMachine />
-      <Checkbox />
-      <Clipboard />
-      <Collapsible />
-      <ColorPicker />
       <Combobox />
-      <ContextMenu />
-      <Countdown />
-      <CountdownMachine />
-      <DatePicker />
-      <Dialog />
-      <Editable />
-      <FileUpload />
-      <HoverCard />
-      <Menu />
-      <NestedMenu />
-      <NumberInput />
-      <Pagination />
-      <Popover />
-      <Presence present>presence</Presence>
-      <ProgressCircular />
-      <ProgressLinear />
-      <QRCode />
-      <Radio />
-      <RangeSlider />
-      <Rating />
-      <SegmentedControl />
-      <Select />
-      <SelectMachine />
-      <SignaturePad />
-      <Slider />
-      <Splitter />
-      <Steps />
-      <Switch />
-      <Tabs />
-      <TagsInput />
-      <ToggleGroup />
-      <Tooltip />
-      <Tour />
+      {
+        // <CarouselMachine />
+        // <Checkbox />
+        // <Clipboard />
+        // <Collapsible />
+        // <ColorPicker />
+        // <ContextMenu />
+        // <Countdown />
+        // <CountdownMachine />
+        // <DatePicker />
+        // <Dialog />
+        // <Editable />
+        // <FileUpload />
+        // <HoverCard />
+        // <Menu />
+        // <NestedMenu />
+        // <NumberInput />
+        // <Pagination />
+        // <Popover />
+        // <Presence present>presence</Presence>
+        // <ProgressCircular />
+        // <ProgressLinear />
+        // <QRCode />
+        // <Radio />
+        // <RangeSlider />
+        // <Rating />
+        // <SegmentedControl />
+        // <Select />
+        // <SelectMachine />
+        // <SignaturePad />
+        // <Slider />
+        // <Splitter />
+        // <Steps />
+        // <Switch />
+        // <Tabs />
+        // <TagsInput />
+        // <ToggleGroup />
+        // <Tooltip />
+        // <Tour />
+      }
     </div>
   );
 }

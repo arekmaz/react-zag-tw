@@ -1,9 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import * as combobox from '@zag-js/combobox';
 import { createHookContext } from './machine-ctx';
 import { ComponentProps, useId, useState } from 'react';
 
-// Create hook context for combobox
 export const [useCombobox, ComboboxProvider, ComboboxContext] =
   createHookContext((ctx: combobox.Context) => {
     const [state, send] = useMachine(combobox.machine(ctx));
@@ -13,58 +13,170 @@ export const [useCombobox, ComboboxProvider, ComboboxContext] =
 
 export const ComboboxConsumer = ComboboxContext.Consumer;
 
-// Combobox Root Component
 export const ComboboxRoot = (props: ComponentProps<'div'>) => (
-  <div {...mergeProps(useCombobox().getRootProps(), props)} />
+  <div
+    {...mergeProps(
+      useCombobox().getRootProps(),
+      { className: ['flex w-full flex-col gap-1.5'].join(' ') },
+      props
+    )}
+  />
 );
 
-// Combobox Label Component
 export const ComboboxLabel = (props: ComponentProps<'label'>) => (
-  <label {...mergeProps(useCombobox().getLabelProps(), props)}>
-    {props.children}
-  </label>
+  <label
+    {...mergeProps(
+      useCombobox().getLabelProps(),
+      {
+        className: [
+          'text-foreground',
+          'font-medium',
+          '_disabled:text-muted-foreground',
+        ].join(' '),
+      },
+      props
+    )}
+  />
 );
 
-// Combobox Control Component
 export const ComboboxControl = (props: ComponentProps<'div'>) => (
-  <div {...mergeProps(useCombobox().getControlProps(), props)}>
-    {props.children}
-  </div>
+  <div
+    {...mergeProps(
+      useCombobox().getControlProps(),
+      { className: 'relative' },
+      props
+    )}
+  />
 );
 
-// Combobox Input Component
 export const ComboboxInput = (props: ComponentProps<'input'>) => (
-  <input {...mergeProps(useCombobox().getInputProps(), props)} />
+  <input
+    {...mergeProps(
+      useCombobox().getInputProps(),
+      {
+        className: [
+          'w-full',
+          'rounded-md',
+          'border',
+          'border-input',
+          'bg-background',
+          'ring-offset-background',
+          'file:border-0',
+          'file:bg-transparent',
+          'file:text-sm',
+          'file:font-medium',
+          'placeholder-muted-foreground',
+          'focus-visible:outline-none',
+          'focus-visible:ring-2',
+          'focus-visible:ring-ring',
+          'focus-visible:ring-offset-2',
+          '_disabled:cursor-not-allowed',
+          '_disabled:opacity-50',
+          '_invalid:text-destructive',
+          '_invalid:placeholder-destructive/50',
+          '_invalid:border-destructive',
+          'px-3',
+          'h-11',
+          'min-w-11',
+          'text-base',
+          'text-md',
+          'h-10',
+          'min-w-10',
+          'px-3',
+        ].join(' '),
+      },
+      props
+    )}
+  />
 );
 
-// Combobox Trigger Component
 export const ComboboxTrigger = (props: ComponentProps<'button'>) => (
-  <button {...mergeProps(useCombobox().getTriggerProps(), props)}>▼</button>
+  <button
+    {...mergeProps(
+      useCombobox().getTriggerProps(),
+      {
+        className: [
+          'bottom-0',
+          'text-muted-foreground',
+          'absolute',
+          'top-0',
+          'size-4',
+          'h-full',
+          'cursor-pointer',
+          '_disabled:cursor-not-allowed',
+          '_disabled:opacity-50',
+          'right-3',
+        ].join(' '),
+      },
+      props
+    )}
+  />
 );
 
-// Combobox Positioner Component
 export const ComboboxPositioner = (props: ComponentProps<'div'>) => (
   <div {...mergeProps(useCombobox().getPositionerProps(), props)} />
 );
 
-// Combobox Content Component
 export const ComboboxContent = (props: ComponentProps<'ul'>) => (
-  <ul {...mergeProps(useCombobox().getContentProps(), props)}>
-    {props.children}
-  </ul>
+  <ul
+    {...mergeProps(
+      useCombobox().getContentProps(),
+      {
+        className: [
+          'bg-popover',
+          'rounded-md',
+          'shadow-lg',
+          'flex',
+          'flex-col',
+          'z-dropdown',
+          '_hidden:hidden',
+          'data-[state=closed]:opacity-0',
+          'data-[state=open]:opacity-1',
+          'transition-opacity',
+          'duration-slowest',
+          'ease-out',
+          'ring-1',
+          'ring-border',
+          'outline-muted',
+          'gap-1',
+          'p-1',
+        ].join(' '),
+      },
+      props
+    )}
+  />
 );
 
-// Combobox Item Component
 export const ComboboxItem = ({
   item,
   ...props
 }: { item: { label: string; code: string } } & ComponentProps<'li'>) => (
-  <li {...mergeProps(useCombobox().getItemProps({ item }), props)}>
-    {item.label}
-  </li>
+  <li
+    {...mergeProps(
+      useCombobox().getItemProps({ item }),
+      {
+        className: [
+          'items-center',
+          'rounded-md',
+          'cursor-pointer',
+          'flex',
+          'justify-between',
+          'transition-all',
+          'duration-faster',
+          'data-[highlighted]:bg-accent',
+          '_disabled:text-muted-foreground',
+          '_disabled:cursor-not-allowed',
+          '_disabled:hover:bg-transparent',
+          'text-md',
+          'h-10',
+          'px-2',
+        ].join(' '),
+      },
+      props
+    )}
+  />
 );
 
-// Full Combobox Component
 export function Combobox() {
   const comboboxData = [
     { label: 'Zambia', code: 'ZA' },
@@ -97,13 +209,15 @@ export function Combobox() {
         <ComboboxLabel>Select country</ComboboxLabel>
         <ComboboxControl>
           <ComboboxInput />
-          <ComboboxTrigger />
+          <ComboboxTrigger>▼</ComboboxTrigger>
         </ComboboxControl>
         <ComboboxPositioner>
           {options.length > 0 && (
             <ComboboxContent>
               {options.map((item) => (
-                <ComboboxItem key={item.code} item={item} />
+                <ComboboxItem key={item.code} item={item}>
+                  {item.label}
+                </ComboboxItem>
               ))}
             </ComboboxContent>
           )}

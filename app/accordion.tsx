@@ -40,7 +40,7 @@ export const AccordionItem = ({
     {...mergeProps(
       useAccordion().getItemProps({ value }),
       {
-        className: '',
+        className: ['border-b', 'data-[state=open]:border-stone-500'].join(' '),
       },
       props
     )}
@@ -55,7 +55,21 @@ export const AccordionTrigger = ({
     {...mergeProps(
       useAccordion().getItemTriggerProps({ value }),
       {
-        className: '',
+        className: [
+          'w-full',
+          'flex',
+          'flex-1',
+          'items-center',
+          'justify-between',
+          'py-4',
+          'font-medium',
+          'transition-all',
+          'hover:underline',
+          '_disabled:text-muted-foreground',
+          '_disabled:text-muted-foreground',
+          '_disabled:cursor-not-allowed',
+          '_disabled:hover:no-underline',
+        ].join(' '),
       },
       props
     )}
@@ -70,7 +84,15 @@ export const AccordionContent = ({
     {...mergeProps(
       useAccordion().getItemContentProps({ value }),
       {
-        className: '',
+        className: [
+          'transition-all',
+          'grid',
+          'duration-normal',
+          'ease-default',
+          'grid-rows-[0fr]',
+          'data-[state=open]:grid-rows-[1fr]',
+          'data-[state=open]:pb-4',
+        ].join(' '),
       },
       props
     )}
@@ -89,7 +111,7 @@ export function AccordionMachine() {
               </AccordionTrigger>
             </h3>
             <AccordionContent value={item.title}>
-              {item.content}
+              <div className="overflow-hidden">{item.content}</div>
             </AccordionContent>
           </AccordionItem>
         ))}
