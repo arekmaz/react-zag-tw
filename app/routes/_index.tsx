@@ -11,7 +11,7 @@ import { Dialog } from '~/dialog';
 import { Editable } from '~/editable';
 import { FileUpload } from '~/file-upload';
 import { HoverCard } from '~/hoverCard';
-import { ContextMenu, Menu } from '~/menu';
+import { ContextMenu, Menu, NestedMenu } from '~/menu';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -57,6 +57,7 @@ export default function Index() {
       <HoverCard />
       <Menu />
       <ContextMenu />
+      <NestedMenu />
     </div>
   );
 }
