@@ -23,6 +23,7 @@ import { RangeSlider } from '~/range-slider';
 import { Rating } from '~/rating-group';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
+import { SignaturePad } from '~/signature-pad';
 import { Countdown } from '~/timer';
 import { CountdownMachine } from '~/timer-machine';
 
@@ -66,6 +67,7 @@ export default function Index() {
       <SegmentedControl />
       <RangeSlider />
       <Rating />
+      <SignaturePad />
     </div>
   );
 }
