@@ -7,6 +7,7 @@ import { Collapsible } from '~/collapsible';
 import { ColorPicker } from '~/color-picker';
 import { Combobox } from '~/combobox';
 import { DatePicker } from '~/date-picker';
+import { Dialog } from '~/dialog';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -46,6 +47,7 @@ export default function Index() {
       <ColorPicker />
       <Combobox />
       <DatePicker />
+      <Dialog />
     </div>
   );
 }

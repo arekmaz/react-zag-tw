@@ -23,6 +23,7 @@
     "@zag-js/color-picker": "^0.73.0",
     "@zag-js/combobox": "^0.73.0",
     "@zag-js/date-picker": "^0.73.0",
+    "@zag-js/dialog": "^0.73.0",
     "@zag-js/react": "^0.73.0",
     "@zag-js/select": "^0.73.0",
     "@zag-js/timer": "^0.73.0",
