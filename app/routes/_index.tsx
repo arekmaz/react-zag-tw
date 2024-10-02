@@ -19,6 +19,7 @@ import { Presence } from '~/presence';
 import { ProgressCircular, ProgressLinear } from '~/progress';
 import { QRCode } from '~/qr-code';
 import { Radio, SegmentedControl } from '~/radio-group';
+import { RangeSlider } from '~/range-slider';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -62,6 +63,7 @@ export default function Index() {
       <QRCode />
       <Radio />
       <SegmentedControl />
+      <RangeSlider />
     </div>
   );
 }
