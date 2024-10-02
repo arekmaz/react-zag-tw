@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import * as hoverCard from '@zag-js/hover-card';
-import { useMachine, normalizeProps, Portal, mergeProps } from '@zag-js/react';
+import { mergeProps, normalizeProps, Portal, useMachine } from '@zag-js/react';
 import { ComponentProps, useId } from 'react';
 import { createHookContext } from './machine-ctx';
 
