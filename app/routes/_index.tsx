@@ -10,6 +10,7 @@ import { DatePicker } from '~/date-picker';
 import { Dialog } from '~/dialog';
 import { Editable } from '~/editable';
 import { FileUpload } from '~/file-upload';
+import { HoverCard } from '~/hoverCard';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -52,6 +53,7 @@ export default function Index() {
       <Dialog />
       <Editable />
       <FileUpload />
+      <HoverCard />
     </div>
   );
 }
