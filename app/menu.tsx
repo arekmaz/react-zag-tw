@@ -1,6 +1,6 @@
 import * as menu from '@zag-js/menu';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
-import { ComponentProps } from 'react';
+import { ComponentProps, useId } from 'react';
 import { createHookContext } from './machine-ctx';
 
 export const [useMenu, MenuProvider, MenuContext] = createHookContext(
@@ -40,18 +40,20 @@ export const MenuItem = ({
 
 export function Menu() {
   return (
-    <div>
-      <MenuTrigger>
-        Actions <MenuIndicator>▾</MenuIndicator>
-      </MenuTrigger>
-      <MenuPositioner>
-        <MenuContent>
-          <MenuItem value="edit">Edit</MenuItem>
-          <MenuItem value="duplicate">Duplicate</MenuItem>
-          <MenuItem value="delete">Delete</MenuItem>
-          <MenuItem value="export">Delete</MenuItem>
-        </MenuContent>
-      </MenuPositioner>
-    </div>
+    <MenuProvider id={useId()}>
+      <div>
+        <MenuTrigger>
+          Actions <MenuIndicator>▾</MenuIndicator>
+        </MenuTrigger>
+        <MenuPositioner>
+          <MenuContent>
+            <MenuItem value="edit">Edit</MenuItem>
+            <MenuItem value="duplicate">Duplicate</MenuItem>
+            <MenuItem value="delete">Delete</MenuItem>
+            <MenuItem value="export">Delete</MenuItem>
+          </MenuContent>
+        </MenuPositioner>
+      </div>
+    </MenuProvider>
   );
 }
