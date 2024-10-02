@@ -15,6 +15,7 @@ import { ContextMenu, Menu, NestedMenu } from '~/menu';
 import { NumberInput } from '~/number-input';
 import { Pagination } from '~/pagination';
 import { Popover } from '~/popover';
+import { Presence } from '~/presence';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -52,6 +53,7 @@ export default function Index() {
       <NumberInput />
       <Pagination />
       <Popover />
+      <Presence present>presence</Presence>
     </div>
   );
 }

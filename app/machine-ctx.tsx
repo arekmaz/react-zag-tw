@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { createContext, PropsWithChildren, useContext } from 'react';
 
-export const createHookContext = <Props extends Record<string, unknown>, O>(
+export const createHookContext = <Props extends object, O>(
   hook: (a: Props) => O
 ) => {
   const defaultValue = {};
