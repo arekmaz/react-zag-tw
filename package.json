@@ -46,6 +46,8 @@
     "@zag-js/tabs": "^0.73.0",
     "@zag-js/tags-input": "^0.73.0",
     "@zag-js/timer": "^0.73.0",
+    "@zag-js/toast": "^0.73.0",
+    "@zag-js/toggle-group": "^0.73.0",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.19.2",

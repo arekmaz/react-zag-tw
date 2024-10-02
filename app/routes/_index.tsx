@@ -31,6 +31,7 @@ import { Steps } from '~/steps';
 import { Switch } from '~/switch';
 import { Tabs } from '~/tabs';
 import { TagsInput } from '~/tags-input';
+import { ToggleGroup } from '~/toggle-group';
 
 export const meta: MetaFunction = () => {
   return [
@@ -79,6 +80,7 @@ export default function Index() {
       <Switch />
       <Tabs />
       <TagsInput />
+      <ToggleGroup />
     </div>
   );
 }
