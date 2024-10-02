@@ -56,6 +56,10 @@ export const RadioGroupItemControl = ({
   />
 );
 
+export const RadioGroupIndicator = (props: ComponentProps<'div'>) => (
+  <div {...mergeProps(useRadioGroup().getIndicatorProps(), props)} />
+);
+
 const items = [
   { id: 'apple', label: 'Apples' },
   { id: 'orange', label: 'Oranges' },
@@ -73,6 +77,22 @@ export function Radio() {
             <RadioGroupItemText value={opt.id}>{opt.label}</RadioGroupItemText>
             <RadioGroupItemHiddenInput value={opt.id} />
             <RadioGroupItemControl value={opt.id} />
+          </RadioGroupItem>
+        ))}
+      </RadioGroupRoot>
+    </RadioGroupProvider>
+  );
+}
+
+export function SegmentedControl() {
+  return (
+    <RadioGroupProvider id={useId()}>
+      <RadioGroupRoot>
+        <RadioGroupIndicator />
+        {items.map((opt) => (
+          <RadioGroupItem key={opt.id} value={opt.id}>
+            <RadioGroupItemText value={opt.id}>{opt.label}</RadioGroupItemText>
+            <RadioGroupItemHiddenInput value={opt.id} />
           </RadioGroupItem>
         ))}
       </RadioGroupRoot>
