@@ -30,6 +30,7 @@
     "@zag-js/menu": "^0.73.0",
     "@zag-js/number-input": "^0.73.0",
     "@zag-js/pagination": "^0.73.0",
+    "@zag-js/popover": "^0.73.0",
     "@zag-js/react": "^0.73.0",
     "@zag-js/select": "^0.73.0",
     "@zag-js/timer": "^0.73.0",

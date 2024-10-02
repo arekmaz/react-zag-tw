@@ -57,7 +57,7 @@ export function Pagination() {
                     </PaginationPrevTrigger>
                   </li>
                   {api.pages.map((page, i) => {
-                    if (page.type === 'page')
+                    if (page.type === 'page') {
                       return (
                         <li key={page.value}>
                           <PaginationItem {...page} href={`#${page.value}`}>
@@ -65,14 +65,15 @@ export function Pagination() {
                           </PaginationItem>
                         </li>
                       );
-                    else
-                      return (
-                        <li key={`ellipsis-${i}`}>
-                          <PaginationEllipsis index={i}>
-                            &#8230;
-                          </PaginationEllipsis>
-                        </li>
-                      );
+                    }
+
+                    return (
+                      <li key={`ellipsis-${i}`}>
+                        <PaginationEllipsis index={i}>
+                          &#8230;
+                        </PaginationEllipsis>
+                      </li>
+                    );
                   })}
                   <li>
                     <PaginationNextTrigger href="#next">

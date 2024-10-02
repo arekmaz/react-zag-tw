@@ -14,6 +14,7 @@ import { HoverCard } from '~/hoverCard';
 import { ContextMenu, Menu, NestedMenu } from '~/menu';
 import { NumberInput } from '~/number-input';
 import { Pagination } from '~/pagination';
+import { Popover } from '~/popover';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -29,26 +30,14 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="flex h-screen items-center justify-center flex-col py-10 gap-10">
-      <div className="flex gap-5">
-        <Select />
-        <SelectMachine />
-      </div>
-      <div className="flex gap-5">
-        <Countdown />
-        <CountdownMachine />
-      </div>
-      <div className="flex gap-5">
-        <AccordionMachine />
-      </div>
-      <div className="flex gap-5">
-        <CarouselMachine />
-      </div>
-      <div className="flex gap-5">
-        <Checkbox />
-      </div>
-      <div className="flex gap-5">
-        <Clipboard />
-      </div>
+      <Select />
+      <SelectMachine />
+      <Countdown />
+      <CountdownMachine />
+      <AccordionMachine />
+      <CarouselMachine />
+      <Checkbox />
+      <Clipboard />
       <Collapsible />
       <ColorPicker />
       <Combobox />
@@ -62,6 +51,7 @@ export default function Index() {
       <NestedMenu />
       <NumberInput />
       <Pagination />
+      <Popover />
     </div>
   );
 }
