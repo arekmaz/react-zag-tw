@@ -2,6 +2,10 @@ import type { MetaFunction } from '@remix-run/node';
 import { AccordionMachine } from '~/accordion-machine';
 import { CarouselMachine } from '~/carousel-machine';
 import { Checkbox } from '~/checkbox-machine';
+import { Clipboard } from '~/clipboard-machine';
+import { Collapsible } from '~/collapsible';
+import { ColorPicker } from '~/color-picker';
+import { Combobox } from '~/combobox';
 import { Select } from '~/select';
 import { Select as SelectMachine } from '~/select-machine';
 import { Countdown } from '~/timer';
@@ -16,7 +20,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="flex h-screen items-center justify-center flex-col">
+    <div className="flex h-screen items-center justify-center flex-col py-10 gap-10">
       <div className="flex gap-5">
         <Select />
         <SelectMachine />
@@ -34,6 +38,12 @@ export default function Index() {
       <div className="flex gap-5">
         <Checkbox />
       </div>
+      <div className="flex gap-5">
+        <Clipboard />
+      </div>
+      <Collapsible />
+      <ColorPicker />
+      <Combobox />
     </div>
   );
 }
