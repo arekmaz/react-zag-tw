@@ -26,6 +26,7 @@ import { Select as SelectMachine } from '~/select-machine';
 import { SignaturePad } from '~/signature-pad';
 import { Countdown } from '~/timer';
 import { CountdownMachine } from '~/timer-machine';
+import { Splitter } from '~/splitter';
 
 export const meta: MetaFunction = () => {
   return [
@@ -69,6 +70,7 @@ export default function Index() {
       <Rating />
       <SignaturePad />
       <Slider />
+      <Splitter />
     </div>
   );
 }
