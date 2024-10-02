@@ -30,6 +30,7 @@ import { Splitter } from '~/splitter';
 import { Steps } from '~/steps';
 import { Switch } from '~/switch';
 import { Tabs } from '~/tabs';
+import { TagsInput } from '~/tags-input';
 
 export const meta: MetaFunction = () => {
   return [
@@ -77,6 +78,7 @@ export default function Index() {
       <Steps />
       <Switch />
       <Tabs />
+      <TagsInput />
     </div>
   );
 }

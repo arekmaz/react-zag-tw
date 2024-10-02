@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import * as tabs from '@zag-js/tabs';
-import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
-import { useId, ComponentProps } from 'react';
+import { ComponentProps, useId } from 'react';
 import { createHookContext } from './machine-ctx';
 
 export const [useTabs, TabsProvider, TabsContext] = createHookContext(
