@@ -32,6 +32,7 @@ import { Switch } from '~/switch';
 import { Tabs } from '~/tabs';
 import { TagsInput } from '~/tags-input';
 import { ToggleGroup } from '~/toggle-group';
+import { Tooltip } from '~/tooltip';
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,10 +44,6 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="flex h-screen items-center justify-center flex-col py-10 gap-10">
-      <Select />
-      <SelectMachine />
-      <Countdown />
-      <CountdownMachine />
       <AccordionMachine />
       <CarouselMachine />
       <Checkbox />
@@ -54,25 +51,29 @@ export default function Index() {
       <Collapsible />
       <ColorPicker />
       <Combobox />
+      <ContextMenu />
+      <Countdown />
+      <CountdownMachine />
       <DatePicker />
       <Dialog />
       <Editable />
       <FileUpload />
       <HoverCard />
       <Menu />
-      <ContextMenu />
       <NestedMenu />
       <NumberInput />
       <Pagination />
       <Popover />
       <Presence present>presence</Presence>
-      <ProgressLinear />
       <ProgressCircular />
+      <ProgressLinear />
       <QRCode />
       <Radio />
-      <SegmentedControl />
       <RangeSlider />
       <Rating />
+      <SegmentedControl />
+      <Select />
+      <SelectMachine />
       <SignaturePad />
       <Slider />
       <Splitter />
@@ -81,6 +82,7 @@ export default function Index() {
       <Tabs />
       <TagsInput />
       <ToggleGroup />
+      <Tooltip />
     </div>
   );
 }
