@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import * as avatar from '@zag-js/avatar';
 import { createHookContext } from './machine-ctx';
@@ -20,7 +21,13 @@ export const AvatarRoot = (props: ComponentProps<'div'>) => (
     {...mergeProps(
       useAvatar().getRootProps(),
       {
-        className: '',
+        className: [
+          'size-12',
+          'rounded-full',
+          'border',
+          'shrink-0',
+          'overflow-hidden',
+        ].join(' '),
       },
       props
     )}
@@ -32,7 +39,15 @@ export const AvatarFallback = (props: ComponentProps<'span'>) => (
     {...mergeProps(
       useAvatar().getFallbackProps(),
       {
-        className: '',
+        className: [
+          'flex',
+          'items-center',
+          'justify-center',
+          'bg-muted-foreground',
+          'font-semibold',
+          'h-[inherit]',
+          'data-[state=hidden]:hidden',
+        ].join(' '),
       },
       props
     )}
@@ -44,7 +59,7 @@ export const AvatarImage = (props: ComponentProps<'img'>) => (
     {...mergeProps(
       useAvatar().getImageProps(),
       {
-        className: '',
+        className: 'object-cover',
         alt: 'Avatar',
       },
       props

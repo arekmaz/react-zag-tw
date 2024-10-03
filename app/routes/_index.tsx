@@ -34,6 +34,7 @@ import { TagsInput } from '~/tags-input';
 import { ToggleGroup } from '~/toggle-group';
 import { Tooltip } from '~/tooltip';
 import { Tour } from '~/tour';
+import { AvatarMachine } from '~/avatar';
 
 export const meta: MetaFunction = () => {
   return [
@@ -47,6 +48,7 @@ export default function Index() {
     <div className="flex h-screen items-center justify-center flex-col py-10 gap-10">
       <AccordionMachine />
       <Combobox />
+      <AvatarMachine src="https://github.com/shadcn.png" />
       {
         // <CarouselMachine />
         // <Checkbox />
