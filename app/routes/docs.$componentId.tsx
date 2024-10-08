@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { Accordion } from '../accordion.tsx';
 import { Avatar } from '../avatar.tsx';
 import { CarouselMachine } from '../carousel-machine.tsx';
-import { Checkbox } from '../checkbox-machine.tsx';
+import { Checkbox } from '../checkbox.tsx';
 import { Clipboard } from '../clipboard-machine.tsx';
 import { Collapsible } from '../collapsible.tsx';
 import { ColorPicker } from '../color-picker.tsx';
@@ -26,18 +26,23 @@ export const components: Record<string, { name?: string; C: () => ReactNode }> =
       C: Collapsible,
     },
     carousel: {
+      name: 'Carousel',
       C: CarouselMachine,
     },
     clipboard: {
+      name: 'Clipboard',
       C: Clipboard,
     },
     checkbox: {
+      name: 'Checkbox',
       C: Checkbox,
     },
     colorPicker: {
+      name: 'Color Picker',
       C: ColorPicker,
     },
     contextMenu: {
+      name: 'Context Menu',
       C: ContextMenu,
     },
     //   <Clipboard />

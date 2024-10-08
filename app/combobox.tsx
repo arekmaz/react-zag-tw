@@ -208,7 +208,7 @@ export function Combobox() {
       <ComboboxRoot>
         <ComboboxLabel>Select country</ComboboxLabel>
         <ComboboxControl>
-          <ComboboxInput />
+          <ComboboxInput placeholder="country" />
           <ComboboxTrigger>▼</ComboboxTrigger>
         </ComboboxControl>
         <ComboboxPositioner>
