@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import * as combobox from '@zag-js/combobox';
-import { createHookContext } from './machine-ctx';
+import { createHookContext } from './machine-ctx.tsx';
 import { ComponentProps, useId, useState } from 'react';
 
 export const [useCombobox, ComboboxProvider, ComboboxContext] =

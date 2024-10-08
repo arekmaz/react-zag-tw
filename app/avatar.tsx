@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import * as avatar from '@zag-js/avatar';
-import { createHookContext } from './machine-ctx';
+import { createHookContext } from './machine-ctx.tsx';
 import { ComponentProps } from 'react';
 
 export const [useAvatar, AvatarProvider, AvatarContext] = createHookContext(
@@ -67,7 +67,7 @@ export const AvatarImage = (props: ComponentProps<'img'>) => (
   />
 );
 
-export function AvatarMachine({ src }: { src: string }) {
+export function Avatar({ src }: { src: string }) {
   return (
     <AvatarProvider id="1">
       <AvatarRoot>

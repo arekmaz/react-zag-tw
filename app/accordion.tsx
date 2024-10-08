@@ -99,7 +99,7 @@ export const AccordionContent = ({
   />
 );
 
-export function AccordionMachine() {
+export function Accordion() {
   return (
     <AccordionProvider id="1">
       <AccordionRoot>
