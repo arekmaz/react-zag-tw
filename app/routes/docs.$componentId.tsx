@@ -1,41 +1,14 @@
-import { Link, useParams } from '@remix-run/react';
-import { Accordion } from '../accordion.tsx';
+import { Link, NavLink, useParams } from '@remix-run/react';
 import { ReactNode } from 'react';
+import { Accordion } from '../accordion.tsx';
 import { Avatar } from '../avatar.tsx';
-import { Combobox } from '../combobox.tsx';
-import { Collapsible } from '../collapsible.tsx';
 import { CarouselMachine } from '../carousel-machine.tsx';
 import { Checkbox } from '../checkbox-machine.tsx';
 import { Clipboard } from '../clipboard-machine.tsx';
+import { Collapsible } from '../collapsible.tsx';
 import { ColorPicker } from '../color-picker.tsx';
-import { DatePicker } from '../date-picker.tsx';
-import { Dialog } from '../dialog.tsx';
-import { Editable } from '../editable.tsx';
-import { FileUpload } from '../file-upload.tsx';
-import { HoverCard } from '../hoverCard.tsx';
-import { ContextMenu, Menu, NestedMenu } from '../menu.tsx';
-import { NumberInput } from '../number-input.tsx';
-import { Pagination } from '../pagination.tsx';
-import { Popover } from '../popover.tsx';
-import { Presence } from '../presence.tsx';
-import { ProgressCircular, ProgressLinear } from '../progress.tsx';
-import { QRCode } from '../qr-code.tsx';
-import { Radio, SegmentedControl } from '../radio-group.tsx';
-import { RangeSlider, Slider } from '../slider.tsx';
-import { Rating } from '../rating-group.tsx';
-import { Select } from '../select.tsx';
-import { Select as SelectMachine } from '../select-machine.tsx';
-import { SignaturePad } from '../signature-pad.tsx';
-import { Countdown } from '../timer.tsx';
-import { CountdownMachine } from '../timer-machine.tsx';
-import { Splitter } from '../splitter.tsx';
-import { Steps } from '../steps.tsx';
-import { Switch } from '../switch.tsx';
-import { Tabs } from '../tabs.tsx';
-import { TagsInput } from '../tags-input.tsx';
-import { ToggleGroup } from '../toggle-group.tsx';
-import { Tooltip } from '../tooltip.tsx';
-import { Tour } from '../tour.tsx';
+import { Combobox } from '../combobox.tsx';
+import { ContextMenu } from '../menu.tsx';
 
 export const components: Record<string, { name?: string; C: () => ReactNode }> =
   {
@@ -123,9 +96,13 @@ export default function Components() {
         <p className="font-semibold">Components</p>
 
         {Object.entries(components).map(([id, comp]) => (
-          <Link key={id} to={`/docs/${id}`}>
+          <NavLink
+            key={id}
+            to={`/docs/${id}`}
+            className="aria-[current=page]:font-bold aria-[current=page]:text-red-600"
+          >
             {comp.name || id}
-          </Link>
+          </NavLink>
         ))}
       </aside>
     );
