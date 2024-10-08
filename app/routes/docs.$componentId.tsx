@@ -8,7 +8,32 @@ import { Clipboard } from '../clipboard-machine.tsx';
 import { Collapsible } from '../collapsible.tsx';
 import { ColorPicker } from '../color-picker.tsx';
 import { Combobox } from '../combobox.tsx';
-import { ContextMenu } from '../menu.tsx';
+import { ContextMenu, Menu, NestedMenu } from '../menu.tsx';
+import { Countdown } from '../timer.tsx';
+import { DatePicker } from '../date-picker.tsx';
+import { Dialog } from '../dialog.tsx';
+import { Editable } from '../editable.tsx';
+import { FileUpload } from '../file-upload.tsx';
+import { HoverCard } from '../hoverCard.tsx';
+import { NumberInput } from '../number-input.tsx';
+import { Pagination } from '../pagination.tsx';
+import { Popover } from '../popover.tsx';
+import { Presence } from '../presence.tsx';
+import { ProgressCircular, ProgressLinear } from '../progress.tsx';
+import { QRCode } from '../qr-code.tsx';
+import { Radio, SegmentedControl } from '../radio-group.tsx';
+import { Rating } from '../rating-group.tsx';
+import { Select } from '../select-machine.tsx';
+import { SignaturePad } from '../signature-pad.tsx';
+import { RangeSlider, Slider } from '../slider.tsx';
+import { Splitter } from '../splitter.tsx';
+import { Steps } from '../steps.tsx';
+import { Switch } from '../switch.tsx';
+import { Tabs } from '../tabs.tsx';
+import { TagsInput } from '../tags-input.tsx';
+import { ToggleGroup } from '../toggle-group.tsx';
+import { Tooltip } from '../tooltip.tsx';
+import { Tour } from '../tour.tsx';
 
 export const components: Record<string, { name?: string; C: () => ReactNode }> =
   {
@@ -37,50 +62,134 @@ export const components: Record<string, { name?: string; C: () => ReactNode }> =
       name: 'Checkbox',
       C: Checkbox,
     },
-    colorPicker: {
+    'color-picker': {
       name: 'Color Picker',
       C: ColorPicker,
     },
-    contextMenu: {
+    'context-menu': {
       name: 'Context Menu',
       C: ContextMenu,
     },
-    //   <Clipboard />
-    //   <Checkbox />
-    //   <ColorPicker />
-    //   <ContextMenu />
-    //   <Countdown />
-    //   <CountdownMachine />
-    //   <DatePicker />
-    //   <Dialog />
-    //   <Editable />
-    //   <FileUpload />
-    //   <HoverCard />
-    //   <Menu />
-    //   <NestedMenu />
-    //   <NumberInput />
-    //   <Pagination />
-    //   <Popover />
-    //   <Presence present>presence</Presence>
-    //   <ProgressCircular />
-    //   <ProgressLinear />
-    //   <QRCode />
-    //   <Radio />
-    //   <RangeSlider />
-    //   <Rating />
-    //   <SegmentedControl />
-    //   <Select />
-    //   <SelectMachine />
-    //   <SignaturePad />
-    //   <Slider />
-    //   <Splitter />
-    //   <Steps />
-    //   <Switch />
-    //   <Tabs />
-    //   <TagsInput />
-    //   <ToggleGroup />
-    //   <Tooltip />
-    //   <Tour />
+    countdown: {
+      name: 'Countdown',
+      C: Countdown,
+    },
+    'date-picker': {
+      name: 'Date Picker',
+      C: DatePicker,
+    },
+    dialog: {
+      name: 'Dialog',
+      C: Dialog,
+    },
+    editable: {
+      name: 'Editable',
+      C: Editable,
+    },
+    'file-upload': {
+      name: 'File Upload',
+      C: FileUpload,
+    },
+    'hover-card': {
+      name: 'Hover Card',
+      C: HoverCard,
+    },
+    menu: {
+      name: 'Menu',
+      C: Menu,
+    },
+    'nested-menu': {
+      name: 'Nested Menu',
+      C: NestedMenu,
+    },
+    'number-input': {
+      name: 'Number Input',
+      C: NumberInput,
+    },
+    pagination: {
+      name: 'Pagination',
+      C: Pagination,
+    },
+    popover: {
+      name: 'Popover',
+      C: Popover,
+    },
+    presence: {
+      name: 'Presence',
+      C: () => <Presence present>presence</Presence>,
+    },
+    'progress-circular': {
+      name: 'Progress Circular',
+      C: ProgressCircular,
+    },
+    'progress-linear': {
+      name: 'Progress Linear',
+      C: ProgressLinear,
+    },
+    'qr-code': {
+      name: 'QR Code',
+      C: QRCode,
+    },
+    radio: {
+      name: 'Radio',
+      C: Radio,
+    },
+    'range-slider': {
+      name: 'Range Slider',
+      C: RangeSlider,
+    },
+    rating: {
+      name: 'Rating',
+      C: Rating,
+    },
+    'segmented-control': {
+      name: 'Segmented Control',
+      C: SegmentedControl,
+    },
+    select: {
+      name: 'Select',
+      C: Select,
+    },
+    'signature-pad': {
+      name: 'Signature Pad',
+      C: SignaturePad,
+    },
+    slider: {
+      name: 'Slider',
+      C: Slider,
+    },
+    splitter: {
+      name: 'Splitter',
+      C: Splitter,
+    },
+    steps: {
+      name: 'Steps',
+      C: Steps,
+    },
+    switch: {
+      name: 'Switch',
+      C: Switch,
+    },
+    tabs: {
+      name: 'Tabs',
+      C: Tabs,
+    },
+    'tags-input': {
+      name: 'Tags Input',
+      C: TagsInput,
+    },
+    'toggle-group': {
+      name: 'Toggle Group',
+      C: ToggleGroup,
+    },
+    tooltip: {
+      name: 'Tooltip',
+      C: Tooltip,
+    },
+    tour: {
+      name: 'Tour',
+      C: Tour,
+    },
   };
 
 export default function Components() {
