@@ -9,7 +9,7 @@ import { Collapsible } from '../collapsible.tsx';
 import { ColorPicker } from '../color-picker.tsx';
 import { Combobox } from '../combobox.tsx';
 import { ContextMenu, Menu, NestedMenu } from '../menu.tsx';
-import { Countdown } from '../timer.tsx';
+import { Timer } from '../timer.tsx';
 import { DatePicker } from '../date-picker.tsx';
 import { Dialog } from '../dialog.tsx';
 import { Editable } from '../editable.tsx';
@@ -70,9 +70,9 @@ export const components: Record<string, { name?: string; C: () => ReactNode }> =
       name: 'Context Menu',
       C: ContextMenu,
     },
-    countdown: {
-      name: 'Countdown',
-      C: Countdown,
+    timer: {
+      name: 'Timer',
+      C: Timer,
     },
     'date-picker': {
       name: 'Date Picker',

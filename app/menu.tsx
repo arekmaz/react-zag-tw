@@ -29,14 +29,62 @@ export const MenuPositioner = (props: ComponentProps<'div'>) => (
 );
 
 export const MenuContent = (props: ComponentProps<'ul'>) => (
-  <ul {...mergeProps(useMenu().api.getContentProps(), props)} />
+  <ul
+    {...mergeProps(
+      useMenu().api.getContentProps(),
+      {
+        className: [
+          'border',
+          'bg-background',
+          'rounded-md',
+          'shadow-lg',
+          'flex-col',
+          'outline-none',
+          'w-[calc(100%+2rem)]',
+          'z-dropdown',
+          'data-[state=open]:flex',
+          'data-[state=closed]:hidden',
+          'gap-1',
+          // 'py-1',
+        ].join(' '),
+      },
+      props
+    )}
+  />
 );
 
 export const MenuItem = ({
   value,
   ...props
 }: ComponentProps<'li'> & menu.ItemProps) => (
-  <li {...mergeProps(useMenu().api.getItemProps({ value }), props)} />
+  <li
+    {...mergeProps(
+      useMenu().api.getItemProps({ value }),
+      {
+        className: [
+          'flex',
+          'items-center',
+          'radius-sm',
+          'cursor-pointer',
+          'font-medium',
+          'text-sm',
+          'transition-[background,color]',
+          'ease-default',
+          'duration-fast',
+          'hover:bg-muted',
+          '_highlighted:bg-muted',
+          '[&_:where(svg)]:text-muted-foreground',
+          'font-semibold',
+          'text-sm',
+          'h-10',
+          'px-2.5',
+          // 'mx-1',
+          '[&_:where(svg)]:size-4',
+        ].join(' '),
+      },
+      props
+    )}
+  />
 );
 
 export const MenuContextTrigger = (props: ComponentProps<'div'>) => (
@@ -114,11 +162,12 @@ export function NestedMenu() {
                             });
                           }}
                         />
-                        <li
+                        <MenuItem
+                          value="share"
                           {...fileMenu.api.getTriggerItemProps(shareMenu.api)}
                         >
                           Share
-                        </li>
+                        </MenuItem>
                         <Portal>
                           <MenuPositioner>
                             <MenuContent>
