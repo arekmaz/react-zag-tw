@@ -111,11 +111,13 @@ export default function Components() {
   return (
     <div className="flex min-h-screen">
       {renderSideBar()}
-      <div className="flex flex-col flex-1 items-center justify-center">
-        <p>
-          {componentId} docs {name || id}
-        </p>
-        <C />
+      <div className="flex flex-col flex-1 items-center p-10">
+        <p>{name || id} docs</p>
+        <div className="flex flex-col items-center justify-center p-10">
+          <div>
+            <C />
+          </div>
+        </div>
       </div>
     </div>
   );
