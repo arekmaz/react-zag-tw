@@ -1,6 +1,6 @@
 import { Link, NavLink, useParams } from '@remix-run/react';
 import { ReactNode } from 'react';
-import { Accordion } from '../accordion.tsx';
+import { Accordion } from '../accordion.stories.tsx';
 import { Avatar } from '../avatar.tsx';
 import { CarouselMachine } from '../carousel-machine.tsx';
 import { Checkbox } from '../checkbox.tsx';

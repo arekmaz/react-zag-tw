@@ -1,31 +1,42 @@
-import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
+import * as Zag from '@zag-js/react';
 import * as accordion from '@zag-js/accordion';
-import { createHookContext } from './machine-ctx';
-import { ComponentProps } from 'react';
+import * as React from 'react';
+import { ChevronDown } from 'lucide-react';
 
-const data = [
-  { title: 'Watercraft', content: 'Sample accordion content' },
-  { title: 'Automobiles', content: 'Sample accordion content' },
-  { title: 'Aircrafts', content: 'Sample accordion content' },
-];
+const AccordionContext = React.createContext<accordion.Api | null>(null);
 
-export const [useAccordion, AccordionProvider, AccordionContext] =
-  createHookContext((ctx: accordion.Context) => {
-    const [state, send] = useMachine(accordion.machine(ctx));
+function useAccordion() {
+  const context = React.useContext(AccordionContext);
+  if (!context) {
+    throw new Error('useAccordion must be used within a AccordionProvider.');
+  }
 
-    const api = accordion.connect(state, send, normalizeProps);
+  return context;
+}
 
-    return api;
-  });
+export const AccordionProvider = ({
+  children,
+  ...ctx
+}: React.PropsWithChildren<accordion.Context>) => {
+  const [state, send] = Zag.useMachine(accordion.machine(ctx));
+
+  const api = accordion.connect(state, send, Zag.normalizeProps);
+
+  return (
+    <AccordionContext.Provider value={api}>
+      {children}
+    </AccordionContext.Provider>
+  );
+};
 
 export const AccordionConsumer = AccordionContext.Consumer;
 
-export const AccordionRoot = (props: ComponentProps<'div'>) => (
+export const AccordionRoot = (props: React.ComponentProps<'div'>) => (
   <div
-    {...mergeProps(
+    {...Zag.mergeProps(
       useAccordion().getRootProps(),
       {
-        className: '',
+        className: ``
       },
       props
     )}
@@ -35,12 +46,14 @@ export const AccordionRoot = (props: ComponentProps<'div'>) => (
 export const AccordionItem = ({
   value,
   ...props
-}: ComponentProps<'div'> & { value: string }) => (
+}: React.ComponentProps<'div'> & { value: string }) => (
   <div
-    {...mergeProps(
+    {...Zag.mergeProps(
       useAccordion().getItemProps({ value }),
       {
-        className: ['border-b', 'data-[state=open]:border-stone-500'].join(' '),
+        className: `
+          border-b
+        `
       },
       props
     )}
@@ -50,26 +63,23 @@ export const AccordionItem = ({
 export const AccordionTrigger = ({
   value,
   ...props
-}: ComponentProps<'button'> & { value: string }) => (
+}: React.ComponentProps<'button'> & { value: string }) => (
   <button
-    {...mergeProps(
+    {...Zag.mergeProps(
       useAccordion().getItemTriggerProps({ value }),
       {
-        className: [
-          'w-full',
-          'flex',
-          'flex-1',
-          'items-center',
-          'justify-between',
-          'py-4',
-          'font-medium',
-          'transition-all',
-          'hover:underline',
-          '_disabled:text-muted-foreground',
-          '_disabled:text-muted-foreground',
-          '_disabled:cursor-not-allowed',
-          '_disabled:hover:no-underline',
-        ].join(' '),
+        className: `
+          w-full
+          flex
+          flex-1
+          items-center
+          justify-between
+          py-4
+          font-medium
+          transition-all
+          hover:underline
+          [&[data-state=open]>svg]:rotate-180
+        `
       },
       props
     )}
@@ -79,43 +89,23 @@ export const AccordionTrigger = ({
 export const AccordionContent = ({
   value,
   ...props
-}: ComponentProps<'div'> & { value: string }) => (
+}: React.ComponentProps<'div'> & { value: string }) => (
   <div
-    {...mergeProps(
+    {...Zag.mergeProps(
       useAccordion().getItemContentProps({ value }),
       {
-        className: [
-          'transition-all',
-          'grid',
-          'duration-normal',
-          'ease-default',
-          'grid-rows-[0fr]',
-          'data-[state=open]:grid-rows-[1fr]',
-          'data-[state=open]:pb-4',
-        ].join(' '),
+        className: `
+          transition-all
+          grid
+          duration-normal
+          ease-default
+          grid-rows-[0fr]
+          data-[state=open]:grid-rows-[1fr]
+          data-[state=open]:pb-4
+        `
       },
       props
     )}
   />
 );
 
-export function Accordion() {
-  return (
-    <AccordionProvider id="1">
-      <AccordionRoot>
-        {data.map((item) => (
-          <AccordionItem key={item.title} value={item.title}>
-            <h3>
-              <AccordionTrigger value={item.title}>
-                {item.title}
-              </AccordionTrigger>
-            </h3>
-            <AccordionContent value={item.title}>
-              <div className="overflow-hidden">{item.content}</div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </AccordionProvider>
-  );
-}
