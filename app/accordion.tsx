@@ -1,7 +1,6 @@
 import * as Zag from '@zag-js/react';
 import * as accordion from '@zag-js/accordion';
 import * as React from 'react';
-import { ChevronDown } from 'lucide-react';
 
 const AccordionContext = React.createContext<accordion.Api | null>(null);
 
@@ -78,6 +77,7 @@ export const AccordionTrigger = ({
           font-medium
           transition-all
           hover:underline
+          cursor-pointer
           [&[data-state=open]>svg]:rotate-180
         `
       },
