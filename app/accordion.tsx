@@ -1,6 +1,7 @@
 import * as Zag from '@zag-js/react';
 import * as accordion from '@zag-js/accordion';
 import * as React from 'react';
+import { ark, HTMLArkProps } from './factory.ts';
 
 const AccordionContext = React.createContext<accordion.Api | null>(null);
 
@@ -30,12 +31,12 @@ export const AccordionProvider = ({
 
 export const AccordionConsumer = AccordionContext.Consumer;
 
-export const AccordionRoot = (props: React.ComponentProps<'div'>) => (
-  <div
+export const AccordionRoot = (props: HTMLArkProps<'div'>) => (
+  <ark.div
     {...Zag.mergeProps(
       useAccordion().getRootProps(),
       {
-        className: ``
+        className: ``,
       },
       props
     )}
@@ -45,14 +46,14 @@ export const AccordionRoot = (props: React.ComponentProps<'div'>) => (
 export const AccordionItem = ({
   value,
   ...props
-}: React.ComponentProps<'div'> & { value: string }) => (
-  <div
+}: HTMLArkProps<'div'> & accordion.ItemProps) => (
+  <ark.div
     {...Zag.mergeProps(
       useAccordion().getItemProps({ value }),
       {
         className: `
           border-b
-        `
+        `,
       },
       props
     )}
@@ -62,8 +63,8 @@ export const AccordionItem = ({
 export const AccordionTrigger = ({
   value,
   ...props
-}: React.ComponentProps<'button'> & { value: string }) => (
-  <button
+}: HTMLArkProps<'button'> & accordion.ItemProps) => (
+  <ark.button
     {...Zag.mergeProps(
       useAccordion().getItemTriggerProps({ value }),
       {
@@ -79,7 +80,7 @@ export const AccordionTrigger = ({
           hover:underline
           cursor-pointer
           [&[data-state=open]>svg]:rotate-180
-        `
+        `,
       },
       props
     )}
@@ -89,8 +90,8 @@ export const AccordionTrigger = ({
 export const AccordionContent = ({
   value,
   ...props
-}: React.ComponentProps<'div'> & { value: string }) => (
-  <div
+}: HTMLArkProps<'div'> & accordion.ItemProps) => (
+  <ark.div
     {...Zag.mergeProps(
       useAccordion().getItemContentProps({ value }),
       {
@@ -102,10 +103,9 @@ export const AccordionContent = ({
           grid-rows-[0fr]
           data-[state=open]:grid-rows-[1fr]
           data-[state=open]:pb-4
-        `
+        `,
       },
       props
     )}
   />
 );
-
